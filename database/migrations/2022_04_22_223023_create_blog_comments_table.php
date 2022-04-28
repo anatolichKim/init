@@ -18,11 +18,11 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('post_id')->constrained('blog_posts');
-            $table->integer('parent_id')->unsigned()->default(1);
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->string('message');
 
             $table->boolean('is_published');
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
