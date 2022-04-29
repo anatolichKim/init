@@ -12,9 +12,8 @@ class BlogCategory extends BlogModel
 
     protected $fillable = [
         'parent_id',
-        'slug',
+        'title',
         'description',
-        'title'
     ];
 
     protected $hidden = [

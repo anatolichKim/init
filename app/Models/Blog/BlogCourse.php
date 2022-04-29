@@ -10,6 +10,13 @@ class BlogCourse extends BlogModel
 {
     use HasFactory;
 
+    protected $fillable = [
+        'category_id',
+        'title',
+        'description',
+        'is_published'
+    ];
+
     public function category(): BelongsTo {
         return $this->belongsTo(BlogCategory::class, 'category_id');
     }

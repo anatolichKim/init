@@ -16,6 +16,14 @@ class BlogComment extends BlogModel
         return BlogCommentFactory::new();
     }
 
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'parent_id',
+        'message',
+        'is_published'
+    ];
+
     public function post(): BelongsTo {
         return $this->belongsTo(BlogPost::class, 'post_id');
     }
