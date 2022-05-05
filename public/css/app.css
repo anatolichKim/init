@@ -457,6 +457,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .right-0 {
   right: 0px;
 }
+.m-0 {
+  margin: 0px;
+}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -492,8 +495,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
 .ml-6 {
   margin-left: 1.5rem;
+}
+.ml-10 {
+  margin-left: 2.5rem;
 }
 .ml-20 {
   margin-left: 5rem;
@@ -503,9 +515,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-8 {
   margin-bottom: 2rem;
-}
-.ml-10 {
-  margin-left: 2.5rem;
 }
 .flex {
   display: flex;
@@ -525,12 +534,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
-.h-2 {
-  height: 0.5rem;
-}
-.h-10 {
-  height: 2.5rem;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -542,12 +545,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-auto {
   width: auto;
-}
-.w-2 {
-  width: 0.5rem;
-}
-.w-10 {
-  width: 2.5rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -591,11 +588,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-t {
   border-top-width: 1px;
 }
-.border-r {
-  border-right-width: 1px;
-}
 .border-b {
   border-bottom-width: 1px;
+}
+.border-r {
+  border-right-width: 1px;
 }
 .border-gray-200 {
   --tw-border-opacity: 1;
@@ -619,6 +616,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-0 {
+  padding: 0px;
 }
 .py-4 {
   padding-top: 1rem;
@@ -647,6 +647,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-right {
   text-align: right;
+}
+.align-baseline {
+  vertical-align: baseline;
 }
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
