@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,12 +21,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="font-sans bg-gray-900 text-white min-h-screen">
-    <div id="app" class="wrapper min-h-screen flex flex-col">
-        <header>
-            <nav class="border-b border-gray-600">@include('components.navbar')</nav>
-        </header>
-        <main class="py-4 content flex flex-3">@yield('content')</main>
-        <footer class="border-t border-gray-600 flex flex-4">@include('components.footer')</footer>
-    </div>
+<div id="app" class="wrapper min-h-screen flex flex-col">
+    <header>
+        <nav class="border-b border-gray-600">@include('components.navbar')</nav>
+    </header>
+    <main class="py-4 content flex flex-3">@yield('content')</main>
+    <footer class="border-t border-gray-600 flex flex-4">@include('components.footer')</footer>
+</div>
 </body>
 </html>

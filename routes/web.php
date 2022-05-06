@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('root');
+
+Auth::routes();
+
+
+
+Route::middleware('guest')
+    ->namespace('App\Http\Controllers\Admin\Blog')
+    ->prefix('admin.blog')
+    ->group(function () {
+        Route::resource('categories', 'CategoryController');
 });
 
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

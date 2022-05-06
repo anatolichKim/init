@@ -13,6 +13,8 @@ return [
     |
     */
 
-    'login' => 'Lоg in',
+    'login' => 'Log in',
+    'logout' => 'Log out',
     'register' => 'Sign up',
+
 ];

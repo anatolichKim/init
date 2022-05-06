@@ -29,7 +29,7 @@
             @endguest
 
             @auth()
-                    <li><a href="{{route('logout')}}" class="hover:text-gray-300">Выйти</a></li>
+                    <li><a href="{{route('logout')}}" class="hover:text-gray-300">{{__('navbar.logout')}}</a></li>
             @endauth
         </ul>
     </div>

@@ -12,13 +12,14 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'login' => 'Login',
-    'email' => 'Email Address',
-    'password' => 'Password',
-    'password_repeat' => 'Repeat password',
-    'remember_me' => 'Remember me',
-    'forgot_password' => 'Forgot your password',
 
-    'register_submit' => 'Sing up',
-    'login_submit' => 'Log in'
+    'login' => 'Логин',
+    'password' => 'Пароль',
+    'password_repeat' => 'Повторите пароль',
+    'email' => 'Ваш email',
+    'remember_me' => 'Запомнить меня',
+    'forgot_password' => 'Забыли ваш пароль?',
+
+    'register_submit' => 'Cохранить',
+    'login_submit' => 'Войти'
 ];
