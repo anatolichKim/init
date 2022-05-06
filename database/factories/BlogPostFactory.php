@@ -36,6 +36,7 @@ class BlogPostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'text'=> $text,
+            'text_html' =>  $text,
             'is_published' => $isPublished,
             'published_at' => $isPublished ? $this->faker->dateTimeBetween('-3 months', '-2 days') : null,
             'created_at' => $createdAt,

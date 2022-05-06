@@ -20,18 +20,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-
 Route::middleware('guest')
-    ->namespace('App\Http\Controllers\Admin\Blog')
-    ->prefix('admin.blog')
+    ->namespace('App\Http\Controllers\Admin')
+    ->prefix('admin')
     ->group(function () {
-        Route::resource('categories', 'CategoryController');
+        Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin');
+        Route::namespace('Blog')
+            ->prefix('blog')
+            ->group(function() {
+               Route::resource('categories', 'CategoryController')->names('admin.blog.categories');
+            });
 });
-
-
-
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

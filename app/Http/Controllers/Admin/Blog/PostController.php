@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
-use App\Models\Blog\BlogCategory;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CategoryController extends BaseController
+class PostController extends BaseController
 {
-
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $title = __('admin.blog_categories_index');
-        return view('admin.blog.categories.index',compact('title'));
+        //
     }
 
     /**
