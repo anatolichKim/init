@@ -14,9 +14,13 @@ class BlogCategory extends BlogModel
         'parent_id',
         'title',
         'description',
+        'slug',
     ];
 
     protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
 
     protected $casts = [

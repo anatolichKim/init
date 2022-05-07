@@ -31,7 +31,7 @@
             <nav class="border-gray-200 px-2 py-2.5 rounded bg-gray-800 text-white">@include('components.admin.navbar')</nav>
         </header>
         <main class="content bg-gray-900">
-            <div class="content_div">@yield('content')</div>
+            <div class="content_div mt-16 ml-20 max-w-[75%]">@yield('content')</div>
         </main>
     </div>
 </div>

@@ -28,7 +28,16 @@ Route::middleware('guest')
         Route::namespace('Blog')
             ->prefix('blog')
             ->group(function() {
-               Route::resource('categories', 'CategoryController')->names('admin.blog.categories');
+               Route::resource('categories', 'CategoryController')
+                   ->names('admin.blog.categories');
+
+               Route::resource('courses', 'CourseController')
+                    ->except('show')
+                    ->names('admin.blog.courses');
+
+               Route::resource('posts', 'PostController')
+                   ->except('show')
+                   ->names('admin.blog.posts');
             });
 });
 
