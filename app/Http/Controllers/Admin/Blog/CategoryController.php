@@ -99,14 +99,24 @@ class CategoryController extends BaseController
 
     }
 
+
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $category = BlogCategory::find($id);
+        $result = $category->delete();
+
+        if($result) {
+            return redirect()
+                ->route('admin.blog.categories.index')
+                ->with(['success'=>__('validation.msg.success_delete')]);
+        } else {
+            return redirect()
+                ->route('admin.blog.categories.index')
+                ->with(['error'=>__('validation.msg.error')]);
+        }
     }
 }
