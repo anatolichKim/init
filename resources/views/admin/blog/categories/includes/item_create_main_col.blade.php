@@ -9,11 +9,10 @@
             <select id="parent_id" name="parent_id" class="mb-10 bg-gray-500 border border-gray-700 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
                 @foreach($categories as $category)
 
-                    @if($category->id == 1)
-                        <option class="bg-cyan-900" value="{{$category->id}}" selected>{{$category->title}} </option>
-                    @else
-                        <option class="bg-cyan-900" value="{{$category->id}}">{{$category->title}}</option>
-                    @endif
+                    <option class="bg-cyan-900" value="{{$category->id}}"
+                            @if($category->id == 1) selected @endif>
+                        {{$category->title}}
+                    </option>
                 @endforeach
             </select>
         </div>
