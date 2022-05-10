@@ -6,6 +6,7 @@ use Database\Factories\BlogPostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class BlogPost extends BlogModel
 {
@@ -30,5 +31,9 @@ class BlogPost extends BlogModel
 
     public function course(): BelongsTo {
         return $this->belongsTo(BlogCourse::class, 'course_id');
+    }
+
+    public function comments(): HasMany {
+        return $this->hasMany(BlogComment::class);
     }
 }

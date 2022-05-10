@@ -4,7 +4,7 @@
     <div class="mt-[20px]">
 
         <div class="py-20">
-            <form method="POST" action="{{route('admin.blog.courses.update', $course->id)}}" class="ml-20 px-5 h-[50%]">
+            <form method="POST" action="{{route('admin.blog.categories.update', $category->id)}}" class="ml-20 px-5 h-[50%]">
                 @method('PATCH')
                 @csrf
                 <div>
@@ -12,11 +12,11 @@
                 </div>
                 <div class="flex flex-column justify-between">
                     <div class="min-w-[70%]">
-                        @include('admin.blog.courses.includes.item_edit_main_col')
+                        @include('admin.blog.categories.includes.item_edit_main_col')
                     </div>
 
                     <div class="min-w-[20%]">
-                        @include('admin.blog.courses.includes.item_edit_add_col')
+                        @include('admin.blog.categories.includes.item_edit_add_col')
                     </div>
                 </div>
             </form>

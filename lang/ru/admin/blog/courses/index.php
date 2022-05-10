@@ -9,8 +9,8 @@ return [
     'option_title' => 'По заголовку',
 
     'table_id' => 'ID',
-    'table_parent_id' => 'Родительский ID',
-    'table_title' => 'Название',
+    'table_category_title' => 'Категория',
+    'table_title' => 'Название курса',
     'table_description' => 'Описание',
     'table_actions' => 'Действия',
     'table_actions_show' => 'Показать',

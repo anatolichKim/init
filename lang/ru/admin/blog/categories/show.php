@@ -6,5 +6,6 @@ return [
     "description" => "Описание",
     "slug" => "Ссылка",
     "created_at" => "Создана",
-    "updated_at" => "Модифицирована"
+    "updated_at" => "Модифицирована",
+
 ];

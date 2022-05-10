@@ -3,5 +3,5 @@
 </div>
 
 <div class="bg-gray-800 mt-10 py-6 px-5 mb-2 w-full rounded">
-    <p>{{__('admin/blog/categories/create.future_id')}} {{($categories[count($categories)-1]->id)+1}}</p>
+    <p>{{__('admin/info.future_id')}} {{($categories[count($categories)-1]->id)+1}}</p>
 </div>

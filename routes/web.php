@@ -32,11 +32,9 @@ Route::middleware('guest')
                    ->names('admin.blog.categories');
 
                Route::resource('courses', 'CourseController')
-                    ->except('show')
                     ->names('admin.blog.courses');
 
                Route::resource('posts', 'PostController')
-                   ->except('show')
                    ->names('admin.blog.posts');
             });
 });
