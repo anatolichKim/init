@@ -1,13 +1,26 @@
-<div class="bg-gray-800 py-10 px-10 divide-y divide-gray-100">
+<div class="bg-gray-800 pt-10 pb-2 px-10 divide-y divide-gray-100">
     <div>
-        <h2 class="bg-gray-500 w-[25%] py-2 px-2">{{__('admin/info.main')}}</h2>
+        <div id="accordion-collapse" data-accordion="collapse" class="h-10 flex flex-column align-center" data-active-classes="text-white bg-gray-500">
+            <h2 id="accordion-collapse-heading-1" class="flex">
+                <button type="button" class="flex justify-between items-center p-5 font-medium text-left" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                    <span class="px-2">{{__('admin/info.main')}}</span>
+                </button>
+            </h2>
+            <h2 id="accordion-collapse-heading-3" class="flex">
+                <button type="button" class="flex justify-between items-center p-5 font-medium text-left" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                    <span class="px-2">{{__('admin/info.extra')}}</span>
+                </button>
+            </h2>
+        </div>
     </div>
-
     <div class="pt-10 pb-10">
-        <div class="block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md">
+        <div id="accordion-collapse-body-1" aria-labelledby="accordion-collapse-heading-1" class="block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md">
             <p>{{__('admin/blog/categories/show.id')}}: {{$category->id}}</p>
             <p>{{__('admin/blog/categories/show.title')}}: {{$category->title}}</p>
             <p>{{__('admin/blog/categories/show.description')}}: {{$category->description}}</p>
+        </div>
+
+        <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-2" class="block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md">
             <p>{{__('admin/blog/categories/show.slug')}}: {{$category->slug}}</p>
             <p>{{__('admin/blog/categories/show.created_at')}}: {{$category->created_at}}</p>
             <p>{{__('admin/blog/categories/show.updated_at')}}: {{$category->updated_at}}</p>
