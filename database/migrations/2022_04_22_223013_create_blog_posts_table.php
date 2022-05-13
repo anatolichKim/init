@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained('blog_courses');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('description');
             $table->longText('text');
 
             $table->boolean('is_published')->default(false);

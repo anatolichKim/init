@@ -13,8 +13,7 @@ class CategoryController extends BaseController
 
     public function index()
     {
-        $categories = BlogCategory::paginate(8)
-                                    ->orderBy('id');
+        $categories = BlogCategory::orderBy('id')->paginate(8);
         $title = __('admin/blog/categories/core.index');
         return view('admin.blog.categories.index', compact('title', 'categories'));
     }

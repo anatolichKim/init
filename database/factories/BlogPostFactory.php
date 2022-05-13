@@ -27,6 +27,7 @@ class BlogPostFactory extends Factory
     {
         $title = $this->faker->sentence(4);
         $isPublished = rand(1,5) > 1;
+        $description = $this->faker->realText(100);
         $text = $this->faker->realText(500, 2);
         $createdAt = $this->faker->dateTimeBetween('-4 months', '-3 months');
 
@@ -35,6 +36,7 @@ class BlogPostFactory extends Factory
             'course_id' => BlogCourse::inRandomOrder()->first()->id,
             'title' => $title,
             'slug' => Str::slug($title),
+            'description' => $description,
             'text'=> $text,
             'is_published' => $isPublished,
             'published_at' => $isPublished ? $this->faker->dateTimeBetween('-3 months', '-2 days') : null,

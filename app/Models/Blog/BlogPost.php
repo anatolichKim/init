@@ -16,8 +16,11 @@ class BlogPost extends BlogModel
         'category_id',
         'course_id',
         'title',
+        'description',
         'text',
-        'is_published'
+        'is_published',
+        'published_at',
+        'slug',
     ];
 
     protected static function newFactory()

@@ -1,5 +1,5 @@
-@if ($categories->links()->paginator->hasPages())
+@if ($posts->links()->paginator->hasPages())
     <div class="mt-4 p-4 box text-center">
-        {{ $categories->links() }}
+        {{ $posts->links() }}
     </div>
 @endif
