@@ -36,11 +36,12 @@
         </div>
         <div class="mb-10">
             <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/create.description')}}</label>
-            <input id="text" name="description" class="block p-2.5 w-full text-sm text-white bg-gray-500 rounded-lg border border-gray-300 placeholder:text-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700" value="{{old('description')}}">
+            <input type="text" name="description" class="block p-2.5 w-full text-sm text-white bg-gray-500 rounded-lg border border-gray-300 placeholder:text-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700" value="{{old('description')}}">
         </div>
         <div class="mb-10">
-            <label for="text" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/create.text')}}</label>
-            <textarea id="text" name="text" rows="6" class="block p-2.5 w-full text-sm text-white bg-gray-500 rounded-lg border border-gray-300 placeholder:text-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700">{{old('text')}}</textarea>
+            <label for="editor" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/create.text')}}</label>
+            <textarea id="editor" class="text-blue-700"></textarea>
+            <input type="hidden" name="text_markdown" id="text_markdown">
         </div>
         <div class="flex items-center mr-4">
             <input checked id="is_published" name="is_published" type="checkbox" value="{{true}}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">

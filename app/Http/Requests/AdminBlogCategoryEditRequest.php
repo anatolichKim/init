@@ -27,7 +27,7 @@ class AdminBlogCategoryEditRequest extends FormRequest
             "parent_id" => "required|numeric|exists:blog_categories,id",
             "title" => "required|string|max:255",
             "description" => "string|min:3|max:1000",
-            "slug" => "max:200",
+            "slug" => "string|max:200",
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogCourse;
 use App\Models\Blog\BlogPost;
 use Database\Seeders\BlogCategoriesTableSeeder;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -28,7 +29,7 @@ class BlogPostFactory extends Factory
         $title = $this->faker->sentence(4);
         $isPublished = rand(1,5) > 1;
         $description = $this->faker->realText(100);
-        $text = $this->faker->realText(500, 2);
+        $text = $this->faker->realText(10000, 2);
         $createdAt = $this->faker->dateTimeBetween('-4 months', '-3 months');
 
         return [
@@ -37,7 +38,7 @@ class BlogPostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'description' => $description,
-            'text'=> $text,
+            'text_markdown'=> $text,
             'is_published' => $isPublished,
             'published_at' => $isPublished ? $this->faker->dateTimeBetween('-3 months', '-2 days') : null,
             'created_at' => $createdAt,

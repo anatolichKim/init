@@ -12,15 +12,11 @@ class BlogPost extends BlogModel
 {
     use HasFactory;
 
-    protected $fillable = [
-        'category_id',
-        'course_id',
-        'title',
-        'description',
-        'text',
-        'is_published',
-        'published_at',
-        'slug',
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
 
     protected static function newFactory()

@@ -19,10 +19,13 @@
         </div>
     </div>
 
-    <div class="pt-10 pb-10">
+
+    <div class="py-10">
         <div id="accordion-collapse-body-1" class="hidden block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md" aria-labelledby="accordion-collapse-heading-1">
             <h2 class="text-center mb-5">{{$post->title}}</h2>
-            <p class="px-4">{{$post->text}}</p>
+            <div class="px-4">
+                {!!$post->text_markdown!!}
+            </div>
         </div>
 
         <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-2" class="hidden block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md">

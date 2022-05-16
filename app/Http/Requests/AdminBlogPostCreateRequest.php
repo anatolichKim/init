@@ -28,7 +28,7 @@ class AdminBlogPostCreateRequest extends FormRequest
             "course_id" => "required|numeric|exists:blog_courses,id",
             "title" => "required|string|max:255",
             "description" => "string|min:3|max:1000",
-            "text"=> "string|min:100|max:10000",
+            "text_markdown"=> "required|string|min:100|max:10000",
             "is_published"=>"boolean"
         ];
     }

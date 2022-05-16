@@ -7,6 +7,7 @@ use App\Http\Requests\AdminBlogPostEditRequest;
 use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogCourse;
 use App\Models\Blog\BlogPost;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Str;
 
@@ -28,6 +29,7 @@ class PostController extends BaseController
      */
     public function create()
     {
+
         $categories = BlogCategory::get(['id','title']);
         $courses = BlogCourse::get(['id', 'title']);
         $postLastId = BlogPost::orderBy('id', 'desc')->first()->id;
@@ -41,6 +43,7 @@ class PostController extends BaseController
 
         $data = $request->validated();
 
+        $data['text_markdown'] = Markdown::convertToHtml($data['text_markdown']);
         if(!isset($data['is_published'])) {
             $data['is_published'] = false;
         }
@@ -50,7 +53,6 @@ class PostController extends BaseController
         }
 
         $data['slug'] = Str::slug($data['title']);
-
         $item = new BlogPost($data);
         $result = $item->fill($data)->save();
 
@@ -72,21 +74,19 @@ class PostController extends BaseController
     public function show($id)
     {
         $post = BlogPost::with('category', 'course')->find($id);
-        $title = __('admin/blog/post/core.show');
-
+        $title = __('admin/blog/posts/core.show');
         return view('admin.blog.posts.show', compact('title', 'post'));
     }
 
 
     public function edit($id)
     {
-        dd(__METHOD__);
-
         $post = BlogPost::find($id);
         $categories = BlogCategory::get(['id','title']);
+        $courses = BlogCourse::get(['id', 'title']);
 
-        $title = __('admin/blog/post/core.edit');
-        return view('admin.blog.post.edit', compact('Post','title', 'categories'));
+        $title = __('admin/blog/posts/core.edit');
+        return view('admin.blog.posts.edit', compact('post','title', 'categories', 'courses'));
     }
 
 
@@ -97,7 +97,6 @@ class PostController extends BaseController
      */
     public function update(AdminBlogPostEditRequest $request, $id)
     {
-        dd(__METHOD__);
 
         $data = $request -> validated();
 
@@ -112,13 +111,15 @@ class PostController extends BaseController
             $data['published_at'] = Date::now()->toDateTimeString();
         }
 
+        $data['text_html'] = Markdown::convertToHtml($data['text_markdown']);
+
         $post = BlogPost::find($id);
 
         $result = $post->fill($data)->save();
 
         if($result) {
             return redirect()
-                ->route('admin.blog.post.index')
+                ->route('admin.blog.posts.index')
                 ->with(['success' => __('validation.msg.success_edit')]);
         } else {
             return back()

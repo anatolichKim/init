@@ -4,7 +4,7 @@
     <div class="mt-[20px]">
 
         <div class="pb-2">
-            <form method="POST" action="{{route('admin.blog.posts.store')}}" class="ml-20 px-5 h-[50%]">
+            <form method="POST" action="{{route('admin.blog.posts.store')}}" class="ml-20 px-5 h-[50%]" id="createPostForm">
                 @csrf
                 <div>
                     @include('admin.messages.item_errors')

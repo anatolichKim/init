@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('description');
-            $table->longText('text');
+            $table->longText('text_markdown');
 
             $table->boolean('is_published')->default(false);
             $table->timestamp('published_at')->nullable();
