@@ -40,3 +40,13 @@ Route::middleware('guest')
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('guest')
+    ->namespace('App\Http\Controllers\Blog')
+    ->prefix('blog')
+    ->group(function () {
+        Route::get('/', [\App\Http\Controllers\Blog\HomeController::class, 'index'])->name('blog');
+        Route::resource('init', 'InitController')
+            ->only('index', 'show')
+            ->names('blog.init');
+    });

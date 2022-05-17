@@ -5,13 +5,8 @@
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _css_components_editor_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/components/editor.css */ "./resources/css/components/editor.css");
-/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! easymde */ "./node_modules/easymde/src/js/easymde.js");
-/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(easymde__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -19,42 +14,19 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-
-
-var editor = new (easymde__WEBPACK_IMPORTED_MODULE_1___default())({
-  autoDownloadFontAwesome: true,
-  element: document.getElementById('editor'),
-  initialValue: 'Hello',
-  width: '500px',
-  toolbar: ["bold", "italic", "strikethrough", "|", "table", "link", "image", "|", "code", "quote", "|", "ordered-list", "unordered-list", "|", "heading-1", "heading-2", "heading-3", "|", "horizontal-rule", "preview", "fullscreen"],
-  tabSize: 4,
-  autosave: {
-    enabled: true,
-    delay: 1000,
-    timeFormat: {
-      locale: "ru-RU"
-    }
-  }
-});
-document.querySelector('#createPostForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.querySelector('#text_markdown').value = editor.value();
-  e.target.submit();
-});
-document.querySelector('#editPostForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  document.querySelector('#text_markdown').value = editor.value();
-  e.target.submit();
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _css_components_editor_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/components/editor.css */ "./resources/css/components/editor.css");
+/* harmony import */ var _components_editorUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/editorUpdate */ "./resources/js/components/editorUpdate.js");
+/* harmony import */ var _components_editorCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/editorCreate */ "./resources/js/components/editorCreate.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
@@ -79,6 +51,70 @@ try {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/editorCreate.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/editorCreate.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! easymde */ "./node_modules/easymde/src/js/easymde.js");
+/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(easymde__WEBPACK_IMPORTED_MODULE_0__);
+
+var editorCreate = new (easymde__WEBPACK_IMPORTED_MODULE_0___default())({
+  autoDownloadFontAwesome: true,
+  element: document.querySelector('#editorCreate'),
+  initialValue: 'Hello',
+  toolbar: ["bold", "italic", "strikethrough", "|", "table", "link", "image", "|", "code", "quote", "|", "ordered-list", "unordered-list", "|", "heading-1", "heading-2", "heading-3", "|", "horizontal-rule", "preview", "fullscreen"],
+  tabSize: 4
+});
+
+if (document.querySelector('#createPostForm') !== null) {
+  document.querySelector('#createPostForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.querySelector('#text_markdown').value = editorCreate.value();
+    e.target.submit();
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/editorUpdate.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/editorUpdate.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! easymde */ "./node_modules/easymde/src/js/easymde.js");
+/* harmony import */ var easymde__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(easymde__WEBPACK_IMPORTED_MODULE_0__);
+
+var editorUpdate = new (easymde__WEBPACK_IMPORTED_MODULE_0___default())({
+  autoDownloadFontAwesome: true,
+  element: document.querySelector('#editorUpdate'),
+  initialValue: 'Hello',
+  toolbar: ["bold", "italic", "strikethrough", "|", "table", "link", "image", "|", "code", "quote", "|", "ordered-list", "unordered-list", "|", "heading-1", "heading-2", "heading-3", "|", "horizontal-rule", "preview", "fullscreen"],
+  tabSize: 4
+});
+
+if (document.querySelector('#editPostForm') !== null) {
+  editorUpdate.value(document.getElementById('text_display').value);
+  document.querySelector('#editPostForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.querySelector('#text_markdown').value = editorUpdate.value();
+    e.target.submit();
+  });
+}
 
 /***/ }),
 

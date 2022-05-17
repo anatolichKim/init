@@ -19,11 +19,7 @@
 <body class="font-sans bg-gray-900 text-white min-h-screen">
 
 <div id="app" class="wrapper min-h-screen flex flex-col">
-    <header>
-        <nav class="border-b border-gray-600">@include('components.navbar')</nav>
-    </header>
     <main class="py-2 content flex flex-3">@yield('content')</main>
-    <footer class="border-t border-gray-600 flex flex-4">@include('components.footer')</footer>
 </div>
 
 <!-- Scripts -->

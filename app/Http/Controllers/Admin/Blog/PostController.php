@@ -43,7 +43,7 @@ class PostController extends BaseController
 
         $data = $request->validated();
 
-        $data['text_markdown'] = Markdown::convertToHtml($data['text_markdown']);
+        $data['text_html'] = Markdown::convertToHtml($data['text_markdown']);
         if(!isset($data['is_published'])) {
             $data['is_published'] = false;
         }
@@ -97,7 +97,6 @@ class PostController extends BaseController
      */
     public function update(AdminBlogPostEditRequest $request, $id)
     {
-
         $data = $request -> validated();
 
         if (empty($data['slug'])) {

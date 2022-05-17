@@ -15,7 +15,7 @@
     </div>
 
     <div class="py-10">
-        <div id="accordion-collapse-edit-body-1" class="hidden block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md" aria-labelledby="accordion-collapse-edit-heading-1">
+        <div id="accordion-collapse-edit-body-1" class="hidden block text-white rounded-lg" aria-labelledby="accordion-collapse-edit-heading-1">
             <div class="mb-10">
                 <label for="category_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/edit.category')}}</label>
                 <select id="category_id" name="category_id" class="mb-10 bg-gray-500 border border-gray-300 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
@@ -30,7 +30,7 @@
             </div>
 
             <div class="mb-10">
-                <label for="course_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/edit.category')}}</label>
+                <label for="course_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/edit.course')}}</label>
                 <select id="course_id" name="course_id" class="mb-10 bg-gray-500 border border-gray-300 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
                     @foreach($courses as $course)
 
@@ -51,24 +51,21 @@
                 <input type="text" id="slug" name="slug" value="{{$post->slug}}" class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
             <div class="mb-10">
-                <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">{{__('admin/blog/posts/edit.slug')}}</label>
+                <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">{{__('admin/blog/posts/edit.description')}}</label>
                 <input type="text" id="description" name="description" value="{{$post->description}}" class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
             <div class="flex items-center mr-4">
-                <input checked id="is_published" name="is_published" type="checkbox" value="{{true}}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <input checked id="is_published" name="is_published" type="checkbox" value="{{$post->is_published}}" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="is_published" class="ml-2 text-sm font-medium text-white dark:text-gray-300">{{__('admin/blog/posts/edit.publish')}}</label>
             </div>
         </div>
 
-        <div id="accordion-collapse-edit-body-2" aria-labelledby="accordion-collapse-edit-heading-2" class="hidden block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md">
+        <div id="accordion-collapse-edit-body-2" aria-labelledby="accordion-collapse-edit-heading-2" class="hidden block p-6 text-white rounded-lg">
             <div class="mb-10">
-                <label for="editor" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/create.text')}}</label>
-                <template id="editor">{!!post->text_markdown!!}</template>
+                <textarea id="text_display" class="hidden">{{$post->text_markdown }}</textarea>
+                <textarea id="editorUpdate"></textarea>
                 <input type="hidden" name="text_markdown" id="text_markdown">
             </div>
         </div>
     </div>
-
-
-
 </div>

@@ -24,7 +24,7 @@
         <div id="accordion-collapse-body-1" class="hidden block p-6 bg-gray-500 text-white rounded-lg border border-gray-200 shadow-md" aria-labelledby="accordion-collapse-heading-1">
             <h2 class="text-center mb-5">{{$post->title}}</h2>
             <div class="px-4">
-                {!!$post->text_markdown!!}
+                {!!$post->text_html!!}
             </div>
         </div>
 

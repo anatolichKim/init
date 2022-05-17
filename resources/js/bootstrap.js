@@ -28,4 +28,8 @@ try {
 //     forceTLS: true
 // });
 
+import "../css/components/editor.css";
+import "./components/editorUpdate";
+import "./components/editorCreate";
+
 

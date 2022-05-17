@@ -1,4 +1,4 @@
-<div class="container flex justify-between items-center px-10 py-6">
+<div class="w-full flex justify-between items-center px-10 py-6">
     <div class="flex items-center">
         <span>{{__('Footer_message')}}</span>
     </div>

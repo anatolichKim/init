@@ -22,6 +22,21 @@ class BlogModulesTableSeeder extends Seeder
 
         $modules = [];
 
+        for($i = 1; $i < 5; $i++) {
+            $moduleName = 'Модуль для первого курса' . $i;
+            $createdAt = $faker -> dateTimeBetween('-6 months', '-5 months');
+
+            $modules[] = [
+                'category_id' => BlogCategory::inRandomOrder()->first()->id,
+                'course_id'=> 1,
+                'title' => $moduleName,
+                'slug' => Str::slug($moduleName),
+                'description' => $moduleName .' ' .Str::random(10),
+                'created_at' => $createdAt,
+                'updated_at' => $createdAt
+            ];
+        }
+
         for ($i = 1; $i <= 20; $i++) {
             $moduleName = 'Модуль #' . $i;
             $createdAt = $faker -> dateTimeBetween('-6 months', '-5 months');

@@ -11,10 +11,6 @@
         {{isset($title) ? $title : config('app.name', 'Laravel')}}
     </title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -23,6 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="font-sans bg-gray-900 text-white min-h-screen">
+
 <div id="app" class="wrapper min-h-screen flex flex-row">
 
     <div class="sidebar min-w-[11%]">
@@ -37,5 +34,10 @@
         </main>
     </div>
 </div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
+
 </body>
 </html>

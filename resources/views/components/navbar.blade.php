@@ -1,5 +1,5 @@
 <div class="border-b border-gray-600">
-    <div class="container flex flex-row items-center justify-between px-10 py-6">
+    <div class="w-full flex flex-row items-center justify-between px-10 py-6">
         <ul class="flex items-center">
             <li class="ml-10">
                 <a href="{{route('root')}}" class="flex items-center hover:text-gray-300">
