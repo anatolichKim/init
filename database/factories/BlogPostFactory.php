@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogCourse;
+use App\Models\Blog\BlogModule;
 use App\Models\Blog\BlogPost;
 use Database\Seeders\BlogCategoriesTableSeeder;
 use GrahamCampbell\Markdown\Facades\Markdown;
@@ -35,10 +36,12 @@ class BlogPostFactory extends Factory
         return [
             'category_id' => BlogCategory::inRandomOrder()->first()->id,
             'course_id' => BlogCourse::inRandomOrder()->first()->id,
+            'module_id' => BlogModule::inRandomOrder()->first()->id,
             'title' => $title,
             'slug' => Str::slug($title),
             'description' => $description,
             'text_markdown'=> $text,
+            'text_html'=> $text,
             'is_published' => $isPublished,
             'published_at' => $isPublished ? $this->faker->dateTimeBetween('-3 months', '-2 days') : null,
             'created_at' => $createdAt,

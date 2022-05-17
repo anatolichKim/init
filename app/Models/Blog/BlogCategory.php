@@ -2,13 +2,9 @@
 
 namespace App\Models\Blog;
 
-use App\Models\Blog\BlogModel;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class BlogCategory extends BlogModel
-
+class BlogCategory extends BlogCoreModel
 {
     protected $table = 'blog_categories';
 
@@ -32,6 +28,10 @@ class BlogCategory extends BlogModel
 
     public function courses(): HasMany {
         return $this->hasMany(BlogCourse::class);
+    }
+
+    public function modules(): HasMany {
+        return $this->hasMany(BlogModule::class);
     }
 
     public function posts(): HasMany {

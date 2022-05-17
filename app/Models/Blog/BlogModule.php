@@ -2,13 +2,12 @@
 
 namespace App\Models\Blog;
 
-use Database\Factories\BlogPostFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class BlogPost extends BlogCoreModel
+class BlogModule extends Model
 {
     protected $guarded = [
         'id',
@@ -17,24 +16,27 @@ class BlogPost extends BlogCoreModel
         'deleted_at'
     ];
 
-    protected static function newFactory()
-    {
-        return BlogPostFactory::new();
-    }
 
-    public function category(): BelongsTo {
+    /**
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(BlogCategory::class, 'category_id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function course(): BelongsTo {
         return $this->belongsTo(BlogCourse::class, 'course_id');
     }
 
-    public function module(): BelongsTo {
-        return $this->belongsTo(BlogModule::class, 'module_id');
-    }
-
-    public function comments(): HasMany {
-        return $this->hasMany(BlogComment::class);
+    /**
+     * @return HasMany
+     */
+    public function posts(): HasMany
+    {
+        return $this->hasMany(BlogPost::class);
     }
 }

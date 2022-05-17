@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class BlogCourse extends BlogModel
+class BlogCourse extends BlogCoreModel
 {
-    use HasFactory;
-
     protected $fillable = [
         'category_id',
         'title',
@@ -28,6 +26,10 @@ class BlogCourse extends BlogModel
 
     public function category(): BelongsTo {
         return $this->belongsTo(BlogCategory::class, 'category_id', 'id');
+    }
+
+    public function modules(): HasMany {
+        return $this->hasMany(BlogModule::class);
     }
 
     public function posts(): HasMany {

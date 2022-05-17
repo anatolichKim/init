@@ -2,16 +2,13 @@
 
 namespace App\Models\Blog;
 
-use App\Models\User;
 use Database\Factories\BlogCommentFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class BlogComment extends BlogModel
+class BlogComment extends BlogCoreModel
 {
-    use HasFactory;
-
     protected static function newFactory()
     {
         return BlogCommentFactory::new();

@@ -4,9 +4,8 @@ namespace App\Models\Blog;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BlogModel extends Model
+class BlogCoreModel extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 }

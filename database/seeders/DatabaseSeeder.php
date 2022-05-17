@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class,
             BlogCategoriesTableSeeder::class,
-            BlogCoursesTableSeeder::class
+            BlogCoursesTableSeeder::class,
+            BlogModulesTableSeeder::class,
         ]);
         BlogPost::factory(100)->create();
         BlogComment::factory(100)->create();
