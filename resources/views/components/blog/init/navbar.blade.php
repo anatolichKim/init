@@ -2,5 +2,5 @@
     <a href="https://flowbite.com" class="flex items-center">
         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">{{ config('app.name', 'Laravel') }}</span>
     </a>
-    <a href="{{route('logout')}}" class="ml-10 mt-1 text-gray-300 hover:text-white">{{__('navbar.logout')}}</a>
+    <a href="{{route('logout')}}" class="ml-10 mt-1 text-gray-300 hover:text-blue-500">{{__('navbar.logout')}}</a>
 </div>

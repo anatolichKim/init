@@ -28,12 +28,31 @@ class InitController extends BaseController
             ->orderBy('id')
             ->get();
 
-        return view('blog.init.index', compact('course', 'modules', 'posts'));
+        $firstPost = $posts[0];
+
+        return view('blog.init.index', compact('course', 'modules', 'posts', 'firstPost'));
     }
 
     public function show($id)
     {
+        $whereTitle = '%Вкатиться в IT%';
+        $course = BlogCourse::where('title', 'like', $whereTitle)->first();
+        $modules = BlogModule::where('course_id', $course->id)->get();
 
+        $moduleIds = [];
+
+        foreach($modules as $module) {
+            $moduleIds[] = $module->id;
+        }
+
+        $posts = BlogPost::with('module')->whereIn('module_id', $moduleIds)
+            ->orderBy('module_id')
+            ->orderBy('id')
+            ->get();
+
+        $post = BlogPost::find($id);
+
+        return view('blog.init.show', compact('course', 'modules', 'posts', 'post'));
     }
 
 }
