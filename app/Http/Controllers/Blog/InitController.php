@@ -33,7 +33,7 @@ class InitController extends BaseController
 
     public function show($id)
     {
-        dd(__METHOD__);
+
     }
 
 }
