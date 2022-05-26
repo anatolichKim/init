@@ -6,6 +6,7 @@ return [
     "description" => "Описание",
     "category" => "Категория",
     "course" => "Курс",
+    "module" => "Модуль",
     "slug" => "Ссылка",
     'published_at' => 'Опубликован',
     "created_at" => "Создан",

@@ -26,6 +26,7 @@ class AdminBlogPostCreateRequest extends FormRequest
         return [
             "category_id" => "required|numeric|exists:blog_categories,id",
             "course_id" => "required|numeric|exists:blog_courses,id",
+            "module_id" => "required|numeric|exists:blog_modules,id",
             "title" => "required|string|max:255",
             "description" => "string|min:3|max:1000",
             "text_markdown"=> "required|string|min:100|max:10000",

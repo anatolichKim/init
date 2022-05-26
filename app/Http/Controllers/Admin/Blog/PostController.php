@@ -6,6 +6,7 @@ use App\Http\Requests\AdminBlogPostCreateRequest;
 use App\Http\Requests\AdminBlogPostEditRequest;
 use App\Models\Blog\BlogCategory;
 use App\Models\Blog\BlogCourse;
+use App\Models\Blog\BlogModule;
 use App\Models\Blog\BlogPost;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Date;
@@ -32,9 +33,10 @@ class PostController extends BaseController
 
         $categories = BlogCategory::get(['id','title']);
         $courses = BlogCourse::get(['id', 'title']);
+        $modules = BlogModule::get(['id', 'title']);
         $postLastId = BlogPost::orderBy('id', 'desc')->first()->id;
         $title = __('admin/blog/posts/core.create');
-        return view('admin.blog.posts.create', compact('title', 'categories', 'courses', 'postLastId'));
+        return view('admin.blog.posts.create', compact('title', 'categories', 'courses', 'modules', 'postLastId'));
     }
 
 
@@ -73,7 +75,7 @@ class PostController extends BaseController
      */
     public function show($id)
     {
-        $post = BlogPost::with('category', 'course')->find($id);
+        $post = BlogPost::with('category', 'course', 'module')->find($id);
         $title = __('admin/blog/posts/core.show');
         return view('admin.blog.posts.show', compact('title', 'post'));
     }
@@ -84,9 +86,10 @@ class PostController extends BaseController
         $post = BlogPost::find($id);
         $categories = BlogCategory::get(['id','title']);
         $courses = BlogCourse::get(['id', 'title']);
+        $modules = BlogModule::get(['id', 'title']);
 
         $title = __('admin/blog/posts/core.edit');
-        return view('admin.blog.posts.edit', compact('post','title', 'categories', 'courses'));
+        return view('admin.blog.posts.edit', compact('post','title', 'categories', 'courses', 'modules'));
     }
 
 
@@ -134,18 +137,16 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__);
-
         $post = BlogPost::find($id);
         $result = $post->delete();
 
         if($result) {
             return redirect()
-                ->route('admin.blog.post.index')
+                ->route('admin.blog.posts.index')
                 ->with(['success'=>__('validation.msg.success_delete')]);
         } else {
             return redirect()
-                ->route('admin.blog.post.index')
+                ->route('admin.blog.posts.index')
                 ->with(['error'=>__('validation.msg.error')]);
         }
     }

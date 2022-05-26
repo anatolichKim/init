@@ -31,6 +31,19 @@
         </div>
 
         <div class="mb-10">
+            <label for="module_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/posts/create.module')}}</label>
+            <select id="module_id" name="module_id" class="mb-10 bg-gray-500 border border-gray-700 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
+                @foreach($modules as $module)
+
+                    <option class="bg-cyan-900" value="{{$module->id}}"
+                            @if($module->id == 1) selected @endif>
+                        {{$module->title}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-10">
             <label for="title" class="block mb-2 text-sm font-medium text-white dark:text-gray-300">{{__('admin/blog/posts/create.title')}}</label>
             <input type="text" id="title" name="title" value="{{old('title')}}" class="bg-gray-500 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         </div>
