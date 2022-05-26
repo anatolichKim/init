@@ -29,7 +29,14 @@
             @endguest
 
             @auth()
-                    <li><a href="{{route('logout')}}" class="hover:text-gray-300">{{__('navbar.logout')}}</a></li>
+                    <li>
+                        <form method="POST" action="{{route('logout')}}" class="ml-10 mt-1 text-gray-300 hover:text-white">
+                            @csrf
+                            <button type="submit">
+                                {{__('navbar.logout')}}
+                            </button>
+                        </form>
+                    </li>
             @endauth
         </ul>
     </div>

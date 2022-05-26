@@ -34,8 +34,12 @@ Route::middleware('guest')
                Route::resource('courses', 'CourseController')
                     ->names('admin.blog.courses');
 
+                Route::resource('modules', 'ModuleController')
+                    ->names('admin.blog.modules');
+
                Route::resource('posts', 'PostController')
                    ->names('admin.blog.posts');
+
             });
 });
 

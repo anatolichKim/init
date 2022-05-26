@@ -1,5 +1,5 @@
  <div class="text-white w-full flex flex-col justify-between">
-     <div class="flex flex-row px-20 w-full">
+     <div class="flex flex-row justify-between px-20 w-full">
          <div class="w-[30%]">
              <div>
                  <p>{{__('blog/components/footer.description_common')}}</p>
@@ -89,7 +89,7 @@
      <hr class="border w-full border-white my-5">
      <div class="ml-10 p-4 sm:flex sm:items-center sm:justify-between">
         <span class="text-sm text-gray-300 sm:text-center dark:text-gray-300">
-            © 2022 <a href="https://flowbite.com" class=" hover:text-blue-500">Flowbite™</a>. All Rights Reserved.
+            © 2022 <a href="https://flowbite.com" class=" hover:text-blue-500">Kim™</a>. All Rights Reserved.
         </span>
 
     </div>
