@@ -49,7 +49,7 @@
 
     <div class="flex-4">
         <footer>
-            <div class="mt-16">@include('components.blog.footer')</div>
+            <div class="mt-52">@include('components.blog.footer')</div>
         </footer>
     </div>
 </div>

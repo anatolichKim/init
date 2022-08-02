@@ -6,6 +6,7 @@ return [
     'blog' => "Блог",
     'categories'=> "Категории",
     'courses' => 'Курсы',
+    'modules' => 'Модули',
     'posts' => 'Посты',
 
     'users' => 'Пользователи',

@@ -46,12 +46,14 @@
                 </li>
                 <li>
                     <a href="{{route('admin.blog.courses.index')}}"
-
                        class="flex items-center p-2 pl-11 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{__('admin.courses')}}</a>
                 </li>
                 <li>
+                    <a href="{{route('admin.blog.modules.index')}}"
+                       class="flex items-center p-2 pl-11 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{__('admin.modules')}}</a>
+                </li>
+                <li>
                     <a href="{{route('admin.blog.posts.index')}}"
-
                        class="flex items-center p-2 pl-11 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">{{__('admin.posts')}}</a>
                 </li>
             </ul>

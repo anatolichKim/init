@@ -5,7 +5,7 @@
 
     <div class="pt-10">
         <div class="mb-10">
-            <label for="category_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/courses/create.category')}}</label>
+            <label for="category_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/courses/edit.category')}}</label>
             <select id="category_id" name="category_id" class="mb-10 bg-gray-500 border border-gray-700 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
                 @foreach($categories as $category)
 

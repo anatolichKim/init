@@ -33,6 +33,7 @@
             <p>{{__('admin/blog/posts/show.id')}}: {{$post->id}}</p>
             <p>{{__('admin/blog/posts/show.category')}}: {{$post->category->title}}</p>
             <p>{{__('admin/blog/posts/show.course')}}: {{$post->course->title}}</p>
+            <p>{{__('admin/blog/posts/show.module')}}: {{$post->module->title}}</p>
             <p>{{__('admin/blog/posts/show.description')}}: {{$post->description}}</p>
         </div>
 

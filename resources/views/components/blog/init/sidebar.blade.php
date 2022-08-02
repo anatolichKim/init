@@ -4,7 +4,7 @@
         @foreach($modules as $module)
             <li>
                 <button type="button"
-                        class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group hover:bg-gray-100 hover:text-blue-500 dark:text-white dark:hover:bg-gray-700"
+                        class="flex items-center p-2 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500 dark:text-white dark:hover:bg-gray-700"
                         aria-controls="dropdown-init-{{$module->id}}" data-collapse-toggle="dropdown-init-{{$module->id}}">
                     <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item="">{{$module->title}}</span>
                     <svg sidebar-toggle-item="" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
@@ -15,12 +15,17 @@
                     </svg>
                 </button>
                 <ul id="dropdown-init-{{$module->id}}" class="py-2 space-y-2">
-                    @foreach($posts as $post)
-                        @if($post->module_id === $module->id)
+                    @foreach($posts as $postForModule)
+                        @if($postForModule->module_id === $module->id)
                             <li>
-                                <a href="{{route('blog.init.show', $post->id)}}"
-                                   class="flex items-center p-2 pl-11 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                                    {{$post->title}}
+                                <a href="{{route('blog.init.show', $postForModule->id)}}"
+                                   class="flex items-center p-2 pl-11 w-full text-base font-normal rounded-lg transition duration-75 group hover:text-blue-500
+                                        @if((isset($post) && $postForModule->id === $post->id)
+                                           || (isset($firstPost) && $postForModule->id === $firstPost->id))
+                                            bg-gray-700
+                                        @endif
+                                   ">
+                                    {{$postForModule->title}}
                                 </a>
                             </li>
                         @endif
