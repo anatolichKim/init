@@ -24,7 +24,7 @@ class CategoryController extends BaseController
      */
     public function create()
     {
-        $categories = BlogCategory::get('id', 'title');
+        $categories = BlogCategory::get(['id', 'title']);
         $title = __('admin/blog/categories/core.create');
         return view('admin.blog.categories.create', compact('title', 'categories'));
     }

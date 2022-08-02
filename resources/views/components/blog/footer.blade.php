@@ -1,5 +1,5 @@
  <div class="text-white w-full flex flex-col justify-between">
-     <div class="grid grid-cols-5 gap-8 place-content-between  px-20">
+     <div class="grid grid-cols-5 gap-8 place-content-between px-20">
          <div>
              <h2 class="mb-6 text-sm font-semibold text-white uppercase">Company</h2>
              <ul class="text-gray-300">

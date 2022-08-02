@@ -5,8 +5,8 @@
 
     <div class="pt-10">
         <div class="mb-10">
-            <label for="parent_id" class="block mb-2 text-sm font-medium text-white dark:text-gray-400">{{__('admin/blog/categories/create.parent_category')}}</label>
-            <select id="parent_id" name="parent_id" class="mb-10 bg-gray-500 border border-gray-700 text-white text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
+            <label for="parent_id" class="block mb-2 text-sm font-medium text-red">{{__('admin/blog/categories/create.parent_category')}}</label>
+            <select id="parent_id" name="parent_id" class="mb-10 bg-gray-500 border border-gray-700 text-sm rounded-lg  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5W bg-arrow-down">
                 @foreach($categories as $category)
 
                     <option class="bg-cyan-900" value="{{$category->id}}"
