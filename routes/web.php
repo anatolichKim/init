@@ -31,6 +31,7 @@ Route::middleware('guest')
     ->namespace('App\Http\Controllers\Auth')
     ->name('auth.')
     ->group(function() {
+        Route::get('/welcome', [\App\Http\Controllers\Base\GuestController::class, 'index'])->name('guest');
         Route::get('/registration', [\App\Http\Controllers\Auth\RegisterController::class, 'show'])
             ->name('registration');
         Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])
@@ -53,7 +54,7 @@ Route::middleware('guest')
     })
 ;
 
-Route::middleware('auth, admin')
+Route::middleware('auth')
     ->name('auth.logout')
     ->post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
@@ -80,13 +81,15 @@ Route::middleware('admin')
             });
 });
 
-Route::get('/', [\App\Http\Controllers\Base\GuestController::class, 'index']);
+
+Route::middleware('auth')
+    ->get('/', [\App\Http\Controllers\Blog\HomeController::class, 'index'])
+    ->name('blog');
 
 Route::middleware('auth')
     ->namespace('App\Http\Controllers\Blog')
     ->prefix('blog')
     ->group(function () {
-        Route::get('/', [\App\Http\Controllers\Blog\HomeController::class, 'index'])->name('blog');
         Route::resource('init', 'InitController')
             ->only('index', 'show')
             ->names('blog.init');

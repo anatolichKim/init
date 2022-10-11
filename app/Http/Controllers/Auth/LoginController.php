@@ -49,7 +49,7 @@ class LoginController extends Controller
     public function auth(AuthUserLoginRequest $request)
     {
         $data = $request->validated();
-        $remember = $data['remember_me'] || false;
+        $remember = (Arr::exists($data, 'remember_me')) ? $data['remember_me'] : false;
         $data = Arr::except($data, 'remember_me');
         if (Auth::attempt($data, $remember)) {
             $request->session()->regenerate();
@@ -62,6 +62,7 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-
+        \Session::flush();
+        return redirect()->route('auth.guest');
     }
 }

@@ -9,4 +9,5 @@ return [
     'promo_header' => 'Начни свой путь в программировании',
     'promo_param' => 'Обучающая платформа для junior и middle backend программистов',
     'signup' => 'Присоединиться',
+    'logout' => 'Выйти',
 ];
