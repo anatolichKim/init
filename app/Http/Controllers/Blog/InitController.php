@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Blog\BaseController;
 use App\Models\Blog\BlogCourse;
 use App\Models\Blog\BlogModule;
 use App\Models\Blog\BlogPost;

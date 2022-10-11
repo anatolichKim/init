@@ -28,6 +28,10 @@ module.exports = {
                     "stroke-linejoin='round' " +
                     "stroke-width='2' " +
                     "d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E\")",
+                'landing-lg': "url(\"../images/bg-3.jpg\")",
+                'create-user': "url(\"../images/create.jpg\")",
+                'login': "url(\"../images/login.jpg\")",
+
             }
         },
     },

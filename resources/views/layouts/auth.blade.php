@@ -19,7 +19,7 @@
 <body class="font-sans bg-gray-900 text-white min-h-screen">
 
 <div id="app" class="wrapper min-h-screen flex flex-col">
-    <main class="py-2 content flex flex-3">@yield('content')</main>
+    <main class="content flex flex-row justify-center flex-3">@yield('content')</main>
 </div>
 
 <!-- Scripts -->

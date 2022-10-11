@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Blog;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Blog\BaseController;
 use Illuminate\Http\Request;
 
 class HomeController extends BaseController

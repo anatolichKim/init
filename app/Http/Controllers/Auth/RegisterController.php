@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthUserRegisterRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use function Termwind\renderUsing;
 
 class RegisterController extends Controller
 {
@@ -25,7 +27,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Where to redirect users when the intended url fails.
      *
      * @var string
      */
@@ -42,21 +44,6 @@ class RegisterController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'login' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -64,12 +51,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        dd(__METHOD__);
-//        return User::create([
-//            'name' => $data['name'],
-//            'email' => $data['email'],
-//            'password' => Hash::make($data['password']),
-//        ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
     }
+
+    public function show()
+    {
+        return view("auth.register");
+    }
+
+    public function register(AuthUserRegisterRequest $request)
+    {
+        $data = $request->validated();
+        $result = $this->create($data);
+        if ($result) {
+            return redirect()->route('auth.login')
+                ->with(['success' => __('validation.msg.success_register')]);
+        } else {
+            return back()->withErrors(['error'=>__('validation.msg.error')])->withInput();
+        }
+    }
+
 }

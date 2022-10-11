@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthUserLoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -20,9 +24,8 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
     /**
-     * Where to redirect users after login.
+     * Where to redirect users when the intended url fails.
      *
      * @var string
      */
@@ -36,5 +39,29 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function show()
+    {
+        return view("auth.login");
+    }
+
+    public function auth(AuthUserLoginRequest $request)
+    {
+        $data = $request->validated();
+        $remember = $data['remember_me'] || false;
+        $data = Arr::except($data, 'remember_me');
+        if (Auth::attempt($data, $remember)) {
+            $request->session()->regenerate();
+            return redirect()->route('blog')
+                ->with(['success' => __('validation.msg.success_register')]);
+        } else {
+            return back()->withErrors(['error'=>__('validation.msg.error')])->withInput();
+        }
+    }
+
+    public function logout() {
+        Auth::logout();
+
     }
 }

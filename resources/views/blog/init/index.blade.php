@@ -16,6 +16,7 @@
         <div class="content">
             {!! $firstPost->text_html !!}
         </div>
+
     </div>
 @endsection
 

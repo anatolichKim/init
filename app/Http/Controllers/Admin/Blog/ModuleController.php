@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Blog\BaseController;
 use App\Http\Requests\AdminBlogModuleCreateRequest;
 use App\Http\Requests\AdminBlogModuleEditRequest;
 use App\Models\Blog\BlogCategory;

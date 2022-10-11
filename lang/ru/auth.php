@@ -14,12 +14,23 @@ return [
     */
 
     'login' => 'Логин',
+    'name' => 'Имя',
+    'login_email' => 'Логин или Email',
     'password' => 'Пароль',
     'password_repeat' => 'Повторите пароль',
-    'email' => 'Ваш email',
+    'email' => 'Email',
     'remember_me' => 'Запомнить меня',
-    'forgot_password' => 'Забыли ваш пароль?',
+    'forgot_password' => 'Забыли пароль?',
 
     'register_submit' => 'Cохранить',
-    'login_submit' => 'Войти'
+    'register' => 'Зарегистрироваться',
+    'login_submit' => 'Войти',
+    'signup_with' => 'Зарегистрироваться с помощью',
+    'login_with' => 'Войти с помощью',
+    'or' => 'или',
+
+    'redirect_login' => 'Войти',
+    'redirect_signup' => 'Зарегистрироваться',
+    'redirect_login_text' => 'Уже зарегистрированы?',
+    'redirect_signup_text' => 'Нет аккаунта?',
 ];
