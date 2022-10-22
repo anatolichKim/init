@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Blog\BlogComment;
 use App\Models\Blog\BlogPost;
-use App\Models\User;
+use App\Models\Users\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

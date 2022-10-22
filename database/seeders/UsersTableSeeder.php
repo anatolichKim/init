@@ -17,24 +17,34 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = [];
+        $faker = \Faker\Factory::create();
 
+        $users = [];
+        $createdAt = $faker -> dateTimeBetween('-6 months', '-5 months');
+        $emailVerifiedAt = $faker->dateTimeBetween('- 4 months', '-2 months');
         $userName = 'Admin';
         $users[] = [
             'name' => $userName,
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'email_verified_at' => $emailVerifiedAt,
+            'created_at' => $createdAt,
+            'updated_at' => $createdAt
         ];
 
         for ($i = 1; $i <= 10; $i++) {
+            $createdAt = $faker -> dateTimeBetween('-6 months', '-5 months');
+            $emailVerifiedAt = $faker->dateTimeBetween('- 4 months', '-2 months');
             $users[] = [
                 'name'=> Str::random(10),
-                'email'=>Str::random(10).'gmail.com',
-                'password'=>Hash::make('password')
+                'email'=>Str::random(5).'@gmail.com',
+                'password'=>Hash::make('password'),
+                'email_verified_at' => $emailVerifiedAt,
+                'created_at' => $createdAt,
+                'updated_at' => $createdAt
             ];
         }
 
         DB::table('users')->insert($users);
-
     }
 }

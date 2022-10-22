@@ -19,7 +19,6 @@
 <body class="font-sans bg-gray-900 text-white min-h-screen">
 
 <div id="app" class="wrapper min-h-screen flex flex-col">
-
 </div>
 
 <!-- Scripts -->

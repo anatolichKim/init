@@ -35,13 +35,12 @@
     </div>
 
     <div class="content flex flex-row min-h-full min-w-[89%] flex-3">
-        <div class="sidebar min-w-[11%]">
-            @hasSection('sidebar')
+        @hasSection('sidebar')
+            <div class="sidebar min-w-[11%]">
                 <aside class="flex min-h-full" aria-label="Sidebar">@yield('sidebar')</aside>
-            @else
-                <aside class="flex min-h-full" aria-label="Sidebar">@include('components.blog.sidebar')</aside>
-            @endif
-        </div>
+            </div>
+        @endif
+
         <main class="content bg-gray-900 ml-10">
             <div class="mt-16 ml-10 max-w-[80%]">@yield('content')</div>
         </main>

@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AuthUserResetPasswordRequest;
+use App\Models\Users\PasswordReset;
+use App\Models\Users\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ResetPasswordController extends Controller
 {
@@ -27,4 +32,35 @@ class ResetPasswordController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function show($token) {
+        return view('auth.passwords.reset', ['token' => $token]);
+    }
+
+    public function resetPassword(AuthUserResetPasswordRequest $request)
+    {
+        $data = $request->validated();
+        $isUserTokenValid = PasswordReset::where(
+            [
+                'email' => $data['email'],
+                'token' => $data['token']
+            ], 1)
+            ->firstOrFail();
+
+        if (!$isUserTokenValid) {
+            return redirect()->route('auth.forgot-password')->withErrors(['error' => __('validation.msg.token')])->withInput();
+        }
+
+        $user = User::where('email', $data['email'])
+            ->update(['password' => Hash::make($data['password'])]);
+
+        PasswordReset::where(['email' => $data['email']])->delete();
+
+        if ($user) {
+            return redirect()->route('auth.login')
+                ->with(['success' => __('validation.msg.success_change_password')]);
+        } else {
+            return back()->withErrors(['error' => __('validation.msg.error')])->withInput();
+        }
+    }
 }

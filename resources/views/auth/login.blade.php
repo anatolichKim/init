@@ -7,9 +7,10 @@
             <form method="POST" action="{{route('auth.logger')}}">
                 @csrf
                 @include('auth.messages.item_errors')
+                @include('auth.messages.item_session')
                 <!-- Email input -->
                 <div class="mb-6">
-                    <label for="email">{{__('auth.login_email')}}</label>
+                    <label for="email">{{__('auth.email')}}</label>
                     <input
                         type="text"
                         class="form-control block w-full bg-gray-500 px-4 py-2 text-base font-normal text-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-white focus:bg-gray-500 placeholder:text-gray-300 placeholder:text-base focus:text-base focus:border-blue-600 focus:outline-none"
@@ -46,7 +47,7 @@
                         </div>
                         <label for="remember" class="ml-2 text-sm font-medium dark:text-gray-300">{{__('auth.remember_me')}}</label>
                     </div>
-                    <a href="#" class="ml-auto text-sm text-blue-500 hover:text-white">{{__('auth.forgot_password')}}</a>
+                    <a href="{{route('auth.forgot-password')}}" class="ml-auto text-sm text-blue-500 hover:text-white">{{__('auth.forgot_password')}}</a>
                 </div>
 
                 <div class="text-center mt-8 lg:text-left">

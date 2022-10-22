@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AuthUserRegisterRequest;
+use App\Models\Users\EmailVerify;
+use App\Models\Users\User;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use function Termwind\renderUsing;
 
 class RegisterController extends Controller
@@ -49,7 +52,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function createUser(array $data)
     {
         return User::create([
             'name' => $data['name'],
@@ -66,11 +69,25 @@ class RegisterController extends Controller
     public function register(AuthUserRegisterRequest $request)
     {
         $data = $request->validated();
-        $result = $this->create($data);
+        $result = $this->createUser($data);
         if ($result) {
-            return redirect()->route('auth.login')
-                ->with(['success' => __('validation.msg.success_register')]);
-        } else {
+
+            $emailVerificationData = EmailVerify::create([
+                'email' => $data['email'],
+                'token' => Str::random(64)
+            ]);
+
+            Mail::send('user.email.verifyEmail',
+                ['token' => $emailVerificationData['token'], 'email' => $emailVerificationData['email']],
+                function ($message) use ($emailVerificationData) {
+                    $message->to($emailVerificationData['email']);
+                    $message->subject('Verify email');
+                });
+
+            return redirect()->route('auth.email-verification', ['email'=>$emailVerificationData['email']])
+                ->with(['verify'=> __('auth.verify_email_fresh_message')]);
+        }
+         else {
             return back()->withErrors(['error'=>__('validation.msg.error')])->withInput();
         }
     }
