@@ -20,8 +20,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->integer('role')->default('3');
+            $table->foreignId('role')->constrained('user_roles');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

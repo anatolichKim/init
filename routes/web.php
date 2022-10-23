@@ -73,6 +73,13 @@ Route::middleware('admin')
 
                Route::resource('posts', 'PostController')
                    ->names('admin.blog.posts');
+
+            });
+        Route::namespace('User')
+            ->prefix('user')
+            ->group(function() {
+                Route::resource('data', 'UserController')
+                    ->names('admin.user.data');
             });
 });
 

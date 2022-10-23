@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('email_verifies', function (Blueprint $table) {
+        Schema::create('password_resets', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->index();
+            $table->string('email')->unique();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
+
+            $table->index('email');
+
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('email_verifies');
+        Schema::dropIfExists('password_resets');
     }
 };
