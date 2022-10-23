@@ -31,7 +31,7 @@ class BlogModulesTableSeeder extends Seeder
                 'course_id'=> 1,
                 'title' => $moduleName,
                 'slug' => Str::slug($moduleName),
-                'description' => $moduleName .' ' .Str::random(10),
+                'description' => $faker->realText(50),
                 'created_at' => $createdAt,
                 'updated_at' => $createdAt
             ];
@@ -46,7 +46,7 @@ class BlogModulesTableSeeder extends Seeder
                 'course_id'=> BlogCourse::inRandomOrder()->first()->id,
                 'title' => $moduleName,
                 'slug' => Str::slug($moduleName),
-                'description' => $moduleName .' ' .Str::random(10),
+                'description' => $faker->realText(50),
                 'created_at' => $createdAt,
                 'updated_at' => $createdAt
             ];

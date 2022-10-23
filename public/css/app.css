@@ -1149,6 +1149,9 @@ input:checked + .toggle-bg {
 .max-w-sm {
   max-width: 24rem;
 }
+.max-w-\[30\%\] {
+  max-width: 30%;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1746,6 +1749,10 @@ input:checked + .toggle-bg {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(28 100 242 / var(--tw-text-opacity));
+}
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

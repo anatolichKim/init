@@ -73,7 +73,6 @@ Route::middleware('admin')
 
                Route::resource('posts', 'PostController')
                    ->names('admin.blog.posts');
-
             });
 });
 

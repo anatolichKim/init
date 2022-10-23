@@ -28,6 +28,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
             'email_verified_at' => $emailVerifiedAt,
+            'role' => 1,
             'created_at' => $createdAt,
             'updated_at' => $createdAt
         ];
@@ -40,6 +41,7 @@ class UsersTableSeeder extends Seeder
                 'email'=>Str::random(5).'@gmail.com',
                 'password'=>Hash::make('password'),
                 'email_verified_at' => $emailVerifiedAt,
+                'role' => 3,
                 'created_at' => $createdAt,
                 'updated_at' => $createdAt
             ];

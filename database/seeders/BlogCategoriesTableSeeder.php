@@ -25,7 +25,7 @@ class BlogCategoriesTableSeeder extends Seeder
             'parent_id' => 0,
             'title' => $categoryName,
             'slug' => Str::slug($categoryName),
-            'description' => $categoryName . ' ' . Str::random(10),
+            'description' => $faker->realText(50),
             'created_at' => $createdAt,
             'updated_at' => $createdAt
         ];
@@ -39,7 +39,7 @@ class BlogCategoriesTableSeeder extends Seeder
                 'parent_id' => $parentId,
                 'title' => $categoryName,
                 'slug' => Str::slug($categoryName),
-                'description' => $categoryName . ' ' . Str::random(10),
+                'description' => $faker->realText(50),
                 'created_at' => $createdAt,
                 'updated_at'=> $createdAt
             ];

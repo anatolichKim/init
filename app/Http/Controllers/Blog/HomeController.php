@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Blog\BaseController;
+use App\Models\Blog\BlogCourse;
 use Illuminate\Http\Request;
 
 class HomeController extends BaseController
@@ -14,7 +15,10 @@ class HomeController extends BaseController
      */
     public function index()
     {
-        return view('blog.index');
+        $courses = BlogCourse::with('category')
+            ->orderBy('id')
+            ->paginate(8);
+        return view('blog.index', compact('courses'));
     }
 
     /**

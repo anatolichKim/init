@@ -53,8 +53,10 @@ class LoginController extends Controller
         $data = Arr::except($data, 'remember_me');
         if (Auth::attempt($data, $remember)) {
             $request->session()->regenerate();
-            return redirect()->route('blog')
-                ->with(['success' => __('validation.msg.success_register')]);
+            if(Auth::user() && Auth::user()->role == 1) {
+                return redirect()->route('admin');
+            }
+            return redirect()->route('blog');
         } else {
             return back()->withErrors(['error'=>__('validation.msg.error')])->withInput();
         }
